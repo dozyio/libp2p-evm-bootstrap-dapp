@@ -161,8 +161,9 @@ useEffect(() => {
       </Head>
       <div style={containerStyle}>
         <h1>DApp for managing on-chain Libp2p bootstrapper peer IDs</h1>
-        <p>Add up to 32 bootstrapper peer IDs to a smart contract that other libp2p peers can bootstrap from.</p>
-        <p>Use libp2p delegated routing to resolve peer IDs to multiaddrs.</p>
+        <div style={{padding: "0.5rem 0"}}>Deployed on Sepolia Testnet</div>
+        <p>Contract address: {CONTRACT_ADDRESS}</p>
+        <p style={{ padding:"0.5rem 0"}}>Add up to 32 bootstrapper peer IDs to a smart contract that other libp2p peers can bootstrap from. Use libp2p <a href="https://github.com/libp2p/js-libp2p-delegated-peer-routing">delegated routing</a> to resolve peer IDs to multiaddrs.</p>
         {!account ? (
           <button onClick={connectWallet} style={buttonStyle}>
             Connect Wallet
@@ -170,7 +171,6 @@ useEffect(() => {
         ) : (
             <div style={{ paddingTop: "1em" }}>
               <p>Account Connected: {account}</p>
-              <p>Contract address: {CONTRACT_ADDRESS}</p>
               <p style={{ paddingTop: "1em" }}>Bootstrapper Peer IDs: {count}</p>
               <ul style={listStyle}>
                 {peerIds.map((id, i) => (
@@ -191,7 +191,7 @@ useEffect(() => {
                   type="text"
                   value={inputPeerId}
                   onChange={e => setInputPeerId(e.target.value)}
-                  placeholder="Peer ID (52 bytes)"
+                  placeholder="Peer ID (Qm... 12D... Max 52 bytes)"
                   style={{ ...inputStyle, width: '300px' }}
                 />
               </div>
@@ -217,6 +217,7 @@ useEffect(() => {
             <div>
               { error }
             </div>
+        <div style={{ padding: "0.5rem 0"}}><a href="https://github.com/dozyio/evm-bootstrap-contract">Contract</a> - <a href="https://github.com/dozyio/libp2p-evm-bootstrap-dapp">DApp (this page)</a> - <a href="https://github.com/dozyio/js-libp2p-evm-bootstrap">JS Libp2p Library</a> - <a href="https://github.com/dozyio/evm-bootstrap-demo">Demo source</a> <a href="https://dozy.io/evm-bootstrap-demo/">Demo site</a></div>
     </div>
     </>
   );
