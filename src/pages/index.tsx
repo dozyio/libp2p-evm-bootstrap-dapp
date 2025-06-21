@@ -53,6 +53,7 @@ useEffect(() => {
       setSigner(sig);
       const ctr = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, sig);
       setContract(ctr);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error(err);
       setError(err.message);
@@ -68,6 +69,7 @@ useEffect(() => {
       setCount(c);
       const list = await contract.getAllPeerIds(account);
       setPeerIds(list);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error(err);
       setError(err.message);
@@ -91,6 +93,7 @@ useEffect(() => {
       const tx = await contract.addPeerId(inputPeerId);
       await tx.wait();
       loadPeerData();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error(err);
       setError(err.message);
@@ -110,6 +113,7 @@ useEffect(() => {
       const tx = await contract.setPeerId(inputSlot, inputPeerId);
       await tx.wait();
       loadPeerData();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error(err);
       setError(err.message);
@@ -129,6 +133,7 @@ useEffect(() => {
       const tx = await contract.removePeerId(inputSlot);
       await tx.wait();
       loadPeerData();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error(err);
       setError(err.message);
@@ -153,9 +158,9 @@ useEffect(() => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={containerStyle}>
-        <h1>Manage on-chain Libp2p bootstrapper peer ID&apos;s</h1>
-        <p>Add up to 32 bootstrapper peer ID&apos;s to a smart contract that other libp2p peers can bootstrap from.</p>
-        <p>Use libp2p delegated routing to resolve peer ID&apos;s to multiaddrs.</p>
+        <h1>DApp for managing on-chain Libp2p bootstrapper peer IDs</h1>
+        <p>Add up to 32 bootstrapper peer IDs to a smart contract that other libp2p peers can bootstrap from.</p>
+        <p>Use libp2p delegated routing to resolve peer IDs to multiaddrs.</p>
         {!account ? (
           <button onClick={connectWallet} style={buttonStyle}>
             Connect Wallet
