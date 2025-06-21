@@ -23,6 +23,7 @@ const CONTRACT_ABI = [
 
 export default function Home() {
   const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [signer, setSigner] = useState<ethers.JsonRpcSigner | null>(null);
   const [contract, setContract] = useState<ethers.Contract | null>(null);
   const [account, setAccount] = useState(null);
@@ -80,6 +81,7 @@ useEffect(() => {
 
   useEffect(() => {
     loadPeerData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contract, account]);
 
   const handleAdd = async () => {
