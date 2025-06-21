@@ -1,5 +1,5 @@
 {
-  "name": "evm-bootstrap-dapp",
+  "name": "libp2p-evm-bootstrap-dapp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
